@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_shared_hero_banners",
+  "info": {
+    "displayName": "HeroBanner",
+    "icon": "book",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "campaigns": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::campaign.campaign"
+    },
+    "showArrows": {
+      "type": "boolean"
+    },
+    "showSteps": {
+      "type": "boolean"
+    },
+    "timeDisplaying": {
+      "type": "biginteger"
+    }
+  }
+}
