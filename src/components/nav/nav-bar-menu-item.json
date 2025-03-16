@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_nav_nav_bar_menu_items",
+  "info": {
+    "displayName": "NavBarMenuItem",
+    "icon": "code",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "sections": {
+      "type": "component",
+      "repeatable": true,
+      "component": "nav.nav-bar-section"
+    },
+    "link": {
+      "type": "component",
+      "repeatable": false,
+      "component": "nav.nav-link"
+    },
+    "campaign": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::campaign.campaign"
+    }
+  }
+}

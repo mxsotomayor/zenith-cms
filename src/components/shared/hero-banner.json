@@ -7,11 +7,6 @@
   },
   "options": {},
   "attributes": {
-    "campaigns": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::campaign.campaign"
-    },
     "showArrows": {
       "type": "boolean"
     },
@@ -20,6 +15,11 @@
     },
     "timeDisplaying": {
       "type": "biginteger"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.hero-banner-item"
     }
   }
 }

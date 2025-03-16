@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_sliders_service_slider_items",
+  "info": {
+    "displayName": "ServiceSliderItem",
+    "icon": "archive"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "cta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "nav.nav-link"
+    }
+  }
+}

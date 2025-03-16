@@ -1,5 +1,134 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface AccordionFaq extends Struct.ComponentSchema {
+  collectionName: 'components_accordion_faqs';
+  info: {
+    description: '';
+    displayName: 'FAQ';
+    icon: 'stack';
+  };
+  attributes: {
+    faqs: Schema.Attribute.Relation<'oneToMany', 'api::faq.faq'>;
+    searchPlaceholder: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface ButtonCallBackButton extends Struct.ComponentSchema {
+  collectionName: 'components_button_call_back_buttons';
+  info: {
+    description: '';
+    displayName: 'CallBackButton';
+    icon: 'bell';
+  };
+  attributes: {
+    subTitle: Schema.Attribute.String;
+    timeOpen: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface GridsArticleGrid extends Struct.ComponentSchema {
+  collectionName: 'components_grids_article_grids';
+  info: {
+    description: '';
+    displayName: 'ArticleGrid';
+    icon: 'clock';
+  };
+  attributes: {
+    articleCategory: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::category.category'
+    >;
+    maxLength: Schema.Attribute.Integer;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface GridsFourBlocksGrid extends Struct.ComponentSchema {
+  collectionName: 'components_grids_four_blocks_grids';
+  info: {
+    description: '';
+    displayName: 'FourBlocksGrid';
+    icon: 'apps';
+  };
+  attributes: {
+    blocks_items: Schema.Attribute.Component<'shared.hero-banner-item', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface NavNavBar extends Struct.ComponentSchema {
+  collectionName: 'components_nav_nav_bars';
+  info: {
+    description: '';
+    displayName: 'NavBar';
+    icon: 'bulletList';
+  };
+  attributes: {
+    menus: Schema.Attribute.Component<'nav.nav-bar-menu-item', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface NavNavBarMenuItem extends Struct.ComponentSchema {
+  collectionName: 'components_nav_nav_bar_menu_items';
+  info: {
+    description: '';
+    displayName: 'NavBarMenuItem';
+    icon: 'code';
+  };
+  attributes: {
+    campaign: Schema.Attribute.Relation<'oneToOne', 'api::campaign.campaign'>;
+    link: Schema.Attribute.Component<'nav.nav-link', false>;
+    sections: Schema.Attribute.Component<'nav.nav-bar-section', true>;
+  };
+}
+
+export interface NavNavBarSection extends Struct.ComponentSchema {
+  collectionName: 'components_nav_nav_bar_sections';
+  info: {
+    description: '';
+    displayName: 'NavBarSection';
+    icon: 'calendar';
+  };
+  attributes: {
+    items: Schema.Attribute.Component<'nav.nav-link', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface NavNavLink extends Struct.ComponentSchema {
+  collectionName: 'components_nav_nav_links';
+  info: {
+    description: '';
+    displayName: 'NavLink';
+  };
+  attributes: {
+    article: Schema.Attribute.Relation<'oneToOne', 'api::article.article'>;
+    campaign: Schema.Attribute.Relation<'oneToOne', 'api::campaign.campaign'>;
+    href: Schema.Attribute.String;
+    page: Schema.Attribute.Relation<'oneToOne', 'api::page.page'>;
+    target: Schema.Attribute.Enumeration<['_blank', '_self']>;
+    text: Schema.Attribute.String;
+  };
+}
+
+export interface SharedAlertCard extends Struct.ComponentSchema {
+  collectionName: 'components_shared_alert_cards';
+  info: {
+    description: '';
+    displayName: 'AlertCard';
+    icon: 'bell';
+  };
+  attributes: {
+    cta: Schema.Attribute.Component<'nav.nav-link', false>;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    subTitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SharedHeroBanner extends Struct.ComponentSchema {
   collectionName: 'components_shared_hero_banners';
   info: {
@@ -8,10 +137,25 @@ export interface SharedHeroBanner extends Struct.ComponentSchema {
     icon: 'book';
   };
   attributes: {
-    campaigns: Schema.Attribute.Relation<'oneToMany', 'api::campaign.campaign'>;
+    items: Schema.Attribute.Component<'shared.hero-banner-item', true>;
     showArrows: Schema.Attribute.Boolean;
     showSteps: Schema.Attribute.Boolean;
     timeDisplaying: Schema.Attribute.BigInteger;
+  };
+}
+
+export interface SharedHeroBannerItem extends Struct.ComponentSchema {
+  collectionName: 'components_shared_hero_banner_items';
+  info: {
+    description: '';
+    displayName: 'HeroBannerItem';
+    icon: 'apps';
+  };
+  attributes: {
+    bg: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    cta: Schema.Attribute.Component<'nav.nav-link', false>;
+    description: Schema.Attribute.String;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -77,15 +221,68 @@ export interface SharedSlider extends Struct.ComponentSchema {
   };
 }
 
+export interface SlidersServiceSliderItem extends Struct.ComponentSchema {
+  collectionName: 'components_sliders_service_slider_items';
+  info: {
+    displayName: 'ServiceSliderItem';
+    icon: 'archive';
+  };
+  attributes: {
+    cta: Schema.Attribute.Component<'nav.nav-link', false>;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
+export interface SlidersServicesSlider extends Struct.ComponentSchema {
+  collectionName: 'components_sliders_services_sliders';
+  info: {
+    description: '';
+    displayName: 'ServicesSlider';
+    icon: 'chartPie';
+  };
+  attributes: {
+    services_items: Schema.Attribute.Component<
+      'sliders.service-slider-item',
+      true
+    >;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface TextCampaignHighlight extends Struct.ComponentSchema {
+  collectionName: 'components_text_campaign_highlights';
+  info: {
+    description: '';
+    displayName: 'CampaignHighlight';
+    icon: 'bulletList';
+  };
+  attributes: {
+    highlight: Schema.Attribute.String;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'accordion.faq': AccordionFaq;
+      'button.call-back-button': ButtonCallBackButton;
+      'grids.article-grid': GridsArticleGrid;
+      'grids.four-blocks-grid': GridsFourBlocksGrid;
+      'nav.nav-bar': NavNavBar;
+      'nav.nav-bar-menu-item': NavNavBarMenuItem;
+      'nav.nav-bar-section': NavNavBarSection;
+      'nav.nav-link': NavNavLink;
+      'shared.alert-card': SharedAlertCard;
       'shared.hero-banner': SharedHeroBanner;
+      'shared.hero-banner-item': SharedHeroBannerItem;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;
       'shared.slider': SharedSlider;
+      'sliders.service-slider-item': SlidersServiceSliderItem;
+      'sliders.services-slider': SlidersServicesSlider;
+      'text.campaign-highlight': TextCampaignHighlight;
     }
   }
 }

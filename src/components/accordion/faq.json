@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_accordion_faqs",
+  "info": {
+    "displayName": "FAQ",
+    "icon": "stack",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "faqs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::faq.faq"
+    },
+    "title": {
+      "type": "string"
+    },
+    "searchPlaceholder": {
+      "type": "string"
+    }
+  }
+}

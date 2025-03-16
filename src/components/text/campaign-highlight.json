@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_text_campaign_highlights",
+  "info": {
+    "displayName": "CampaignHighlight",
+    "icon": "bulletList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "highlight": {
+      "type": "string"
+    }
+  }
+}

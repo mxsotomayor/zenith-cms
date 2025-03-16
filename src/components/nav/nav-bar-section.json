@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_nav_nav_bar_sections",
+  "info": {
+    "displayName": "NavBarSection",
+    "icon": "calendar",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "items": {
+      "displayName": "NavLink",
+      "type": "component",
+      "repeatable": true,
+      "component": "nav.nav-link"
+    }
+  }
+}

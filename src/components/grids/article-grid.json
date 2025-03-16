@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_grids_article_grids",
+  "info": {
+    "displayName": "ArticleGrid",
+    "icon": "clock",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "articleCategory": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
+    },
+    "maxLength": {
+      "type": "integer"
+    }
+  }
+}

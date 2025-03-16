@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_grids_four_blocks_grids",
+  "info": {
+    "displayName": "FourBlocksGrid",
+    "icon": "apps",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "blocks_items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.hero-banner-item"
+    }
+  }
+}

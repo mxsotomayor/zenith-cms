@@ -1,0 +1,59 @@
+{
+  "kind": "collectionType",
+  "collectionName": "navbars",
+  "info": {
+    "singularName": "navbar",
+    "pluralName": "navbars",
+    "displayName": "NavBar",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "menus": {
+      "type": "component",
+      "repeatable": true,
+      "component": "nav.nav-bar-menu-item",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "logo": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "showLogin": {
+      "type": "boolean"
+    },
+    "showSearch": {
+      "type": "boolean"
+    },
+    "sub_sites": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::sub-site.sub-site"
+    }
+  }
+}

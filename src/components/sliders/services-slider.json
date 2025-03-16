@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_sliders_services_sliders",
+  "info": {
+    "displayName": "ServicesSlider",
+    "icon": "chartPie",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "services_items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "sliders.service-slider-item"
+    }
+  }
+}

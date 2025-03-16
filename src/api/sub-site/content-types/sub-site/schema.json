@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sub_sites",
+  "info": {
+    "singularName": "sub-site",
+    "pluralName": "sub-sites",
+    "displayName": "SubSites",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "displayName": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "displayName"
+    },
+    "page": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::page.page"
+    },
+    "navBar": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::navbar.navbar"
+    },
+    "footer": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::footer.footer"
+    }
+  }
+}

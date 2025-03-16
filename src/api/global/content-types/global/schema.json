@@ -20,7 +20,11 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": ["images", "files", "videos"]
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ]
     },
     "siteDescription": {
       "type": "text",
@@ -30,6 +34,21 @@
       "type": "component",
       "repeatable": false,
       "component": "shared.seo"
+    },
+    "subSites": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::sub-site.sub-site"
+    },
+    "defaultSite": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::sub-site.sub-site"
+    },
+    "callBackButton": {
+      "type": "component",
+      "repeatable": false,
+      "component": "button.call-back-button"
     }
   }
 }

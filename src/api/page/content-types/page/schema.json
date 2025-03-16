@@ -22,17 +22,38 @@
     "body": {
       "type": "dynamiczone",
       "components": [
-        "shared.slider",
-        "shared.seo",
         "shared.rich-text",
         "shared.quote",
         "shared.media",
-        "shared.hero-banner"
+        "shared.hero-banner",
+        "sliders.services-slider",
+        "shared.hero-banner-item",
+        "accordion.faq",
+        "grids.four-blocks-grid",
+        "grids.article-grid",
+        "shared.alert-card"
       ]
     },
     "slug": {
       "type": "uid",
       "targetField": "Title"
+    },
+    "metaTitle": {
+      "type": "string"
+    },
+    "metaDescription": {
+      "type": "string"
+    },
+    "sharedImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   }
 }

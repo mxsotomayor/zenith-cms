@@ -41,14 +41,27 @@
       "type": "string"
     },
     "bg": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
+    },
+    "start": {
+      "type": "datetime"
+    },
+    "end": {
+      "type": "datetime"
+    },
+    "hightlights": {
+      "displayName": "CampaignHighlight",
+      "type": "component",
+      "repeatable": true,
+      "component": "text.campaign-highlight"
     }
   }
 }
