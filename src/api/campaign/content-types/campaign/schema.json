@@ -20,7 +20,8 @@
     "body": {
       "type": "dynamiczone",
       "components": [
-        "shared.rich-text"
+        "shared.rich-text",
+        "shared.alert-card"
       ]
     },
     "slug": {

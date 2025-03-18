@@ -513,7 +513,9 @@ export interface ApiCampaignCampaign extends Struct.CollectionTypeSchema {
   };
   attributes: {
     bg: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    body: Schema.Attribute.DynamicZone<['shared.rich-text']>;
+    body: Schema.Attribute.DynamicZone<
+      ['shared.rich-text', 'shared.alert-card']
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
