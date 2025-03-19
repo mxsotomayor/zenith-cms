@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_bot_chat_bot_settings",
+  "info": {
+    "displayName": "ChatBotSetting",
+    "icon": "feather"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "botName": {
+      "type": "string"
+    },
+    "welcomeMessage": {
+      "type": "text"
+    }
+  }
+}

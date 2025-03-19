@@ -35,14 +35,15 @@
       }
     },
     "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "showLogin": {
       "type": "boolean"
@@ -54,6 +55,31 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::sub-site.sub-site"
+    },
+    "showChat": {
+      "type": "boolean"
+    },
+    "chatIcon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "topRightMenu": {
+      "type": "component",
+      "repeatable": true,
+      "component": "nav.nav-link"
+    },
+    "loginButton": {
+      "displayName": "loginButton",
+      "type": "component",
+      "repeatable": false,
+      "component": "button.login-button"
     }
   }
 }

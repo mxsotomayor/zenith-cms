@@ -514,7 +514,7 @@ export interface ApiCampaignCampaign extends Struct.CollectionTypeSchema {
   attributes: {
     bg: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     body: Schema.Attribute.DynamicZone<
-      ['shared.rich-text', 'shared.alert-card']
+      ['shared.rich-text', 'shared.alert-card', 'shared.two-column-banner']
     >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -656,6 +656,7 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
       'button.call-back-button',
       false
     >;
+    chatbotSetting: Schema.Attribute.Component<'bot.chat-bot-setting', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -698,11 +699,13 @@ export interface ApiNavbarNavbar extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
+    chatIcon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::navbar.navbar'>;
+    loginButton: Schema.Attribute.Component<'button.login-button', false>;
     logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     menus: Schema.Attribute.Component<'nav.nav-bar-menu-item', true> &
       Schema.Attribute.SetPluginOptions<{
@@ -711,6 +714,7 @@ export interface ApiNavbarNavbar extends Struct.CollectionTypeSchema {
         };
       }>;
     publishedAt: Schema.Attribute.DateTime;
+    showChat: Schema.Attribute.Boolean;
     showLogin: Schema.Attribute.Boolean;
     showSearch: Schema.Attribute.Boolean;
     sub_sites: Schema.Attribute.Relation<'oneToMany', 'api::sub-site.sub-site'>;
@@ -720,6 +724,7 @@ export interface ApiNavbarNavbar extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    topRightMenu: Schema.Attribute.Component<'nav.nav-link', true>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -755,6 +760,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'grids.four-blocks-grid',
         'grids.article-grid',
         'shared.alert-card',
+        'shared.two-column-banner',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;

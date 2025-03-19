@@ -33,6 +33,11 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::article.article"
+    },
+    "subSite": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::sub-site.sub-site"
     }
   }
 }
