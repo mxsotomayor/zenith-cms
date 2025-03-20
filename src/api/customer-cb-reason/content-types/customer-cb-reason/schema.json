@@ -1,0 +1,17 @@
+{
+  "kind": "collectionType",
+  "collectionName": "customer_cb_reasons",
+  "info": {
+    "singularName": "customer-cb-reason",
+    "pluralName": "customer-cb-reasons",
+    "displayName": "CustomerCBReason"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  }
+}

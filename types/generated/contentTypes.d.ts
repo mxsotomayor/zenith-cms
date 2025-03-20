@@ -514,7 +514,12 @@ export interface ApiCampaignCampaign extends Struct.CollectionTypeSchema {
   attributes: {
     bg: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     body: Schema.Attribute.DynamicZone<
-      ['shared.rich-text', 'shared.alert-card']
+      [
+        'shared.rich-text',
+        'shared.alert-card',
+        'shared.two-column-banner',
+        'accordion.faq',
+      ]
     >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -567,6 +572,64 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
     name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCustomerCbReasonCustomerCbReason
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'customer_cb_reasons';
+  info: {
+    displayName: 'CustomerCBReason';
+    pluralName: 'customer-cb-reasons';
+    singularName: 'customer-cb-reason';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::customer-cb-reason.customer-cb-reason'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCustomerCbScheduleCustomerCbSchedule
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'customer_cb_schedules';
+  info: {
+    displayName: 'CustomerCBSchedule';
+    pluralName: 'customer-cb-schedules';
+    singularName: 'customer-cb-schedule';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::customer-cb-schedule.customer-cb-schedule'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -656,6 +719,7 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
       'button.call-back-button',
       false
     >;
+    chatbotSetting: Schema.Attribute.Component<'bot.chat-bot-setting', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -698,11 +762,13 @@ export interface ApiNavbarNavbar extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
+    chatIcon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::navbar.navbar'>;
+    loginButton: Schema.Attribute.Component<'button.login-button', false>;
     logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     menus: Schema.Attribute.Component<'nav.nav-bar-menu-item', true> &
       Schema.Attribute.SetPluginOptions<{
@@ -711,6 +777,7 @@ export interface ApiNavbarNavbar extends Struct.CollectionTypeSchema {
         };
       }>;
     publishedAt: Schema.Attribute.DateTime;
+    showChat: Schema.Attribute.Boolean;
     showLogin: Schema.Attribute.Boolean;
     showSearch: Schema.Attribute.Boolean;
     sub_sites: Schema.Attribute.Relation<'oneToMany', 'api::sub-site.sub-site'>;
@@ -720,6 +787,7 @@ export interface ApiNavbarNavbar extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    topRightMenu: Schema.Attribute.Component<'nav.nav-link', true>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -755,6 +823,8 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'grids.four-blocks-grid',
         'grids.article-grid',
         'shared.alert-card',
+        'shared.two-column-banner',
+        'shared.mobile-app-add',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -1324,6 +1394,8 @@ declare module '@strapi/strapi' {
       'api::author.author': ApiAuthorAuthor;
       'api::campaign.campaign': ApiCampaignCampaign;
       'api::category.category': ApiCategoryCategory;
+      'api::customer-cb-reason.customer-cb-reason': ApiCustomerCbReasonCustomerCbReason;
+      'api::customer-cb-schedule.customer-cb-schedule': ApiCustomerCbScheduleCustomerCbSchedule;
       'api::faq.faq': ApiFaqFaq;
       'api::footer.footer': ApiFooterFooter;
       'api::global.global': ApiGlobalGlobal;

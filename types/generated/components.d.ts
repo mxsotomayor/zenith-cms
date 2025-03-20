@@ -14,6 +14,19 @@ export interface AccordionFaq extends Struct.ComponentSchema {
   };
 }
 
+export interface BotChatBotSetting extends Struct.ComponentSchema {
+  collectionName: 'components_bot_chat_bot_settings';
+  info: {
+    displayName: 'ChatBotSetting';
+    icon: 'feather';
+  };
+  attributes: {
+    botName: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    welcomeMessage: Schema.Attribute.Text;
+  };
+}
+
 export interface ButtonCallBackButton extends Struct.ComponentSchema {
   collectionName: 'components_button_call_back_buttons';
   info: {
@@ -25,6 +38,34 @@ export interface ButtonCallBackButton extends Struct.ComponentSchema {
     subTitle: Schema.Attribute.String;
     timeOpen: Schema.Attribute.String;
     title: Schema.Attribute.String;
+  };
+}
+
+export interface ButtonLoginButton extends Struct.ComponentSchema {
+  collectionName: 'components_button_login_buttons';
+  info: {
+    description: '';
+    displayName: 'loginButton';
+  };
+  attributes: {
+    href: Schema.Attribute.String;
+    text: Schema.Attribute.String;
+  };
+}
+
+export interface FormCustomerCbForm extends Struct.ComponentSchema {
+  collectionName: 'components_form_customer_cb_forms';
+  info: {
+    displayName: 'CustomerCBForm';
+  };
+  attributes: {
+    contactTimeLabel: Schema.Attribute.String;
+    endpoint: Schema.Attribute.String;
+    formSubTitle: Schema.Attribute.String;
+    formTitle: Schema.Attribute.String;
+    nameLabel: Schema.Attribute.String;
+    observationsLabel: Schema.Attribute.String;
+    phoneLabel: Schema.Attribute.String;
   };
 }
 
@@ -109,6 +150,7 @@ export interface NavNavLink extends Struct.ComponentSchema {
     campaign: Schema.Attribute.Relation<'oneToOne', 'api::campaign.campaign'>;
     href: Schema.Attribute.String;
     page: Schema.Attribute.Relation<'oneToOne', 'api::page.page'>;
+    subSite: Schema.Attribute.Relation<'oneToOne', 'api::sub-site.sub-site'>;
     target: Schema.Attribute.Enumeration<['_blank', '_self']>;
     text: Schema.Attribute.String;
   };
@@ -170,6 +212,24 @@ export interface SharedMedia extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedMobileAppAdd extends Struct.ComponentSchema {
+  collectionName: 'components_shared_mobile_app_adds';
+  info: {
+    displayName: 'MobileAppAdd';
+    icon: 'gift';
+  };
+  attributes: {
+    appleStoreUrl: Schema.Attribute.String;
+    appScreens: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    googlePlayUrl: Schema.Attribute.String;
+    subTitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SharedQuote extends Struct.ComponentSchema {
   collectionName: 'components_shared_quotes';
   info: {
@@ -221,6 +281,24 @@ export interface SharedSlider extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedTwoColumnBanner extends Struct.ComponentSchema {
+  collectionName: 'components_shared_two_column_banners';
+  info: {
+    description: '';
+    displayName: 'TwoColumnBanner';
+    icon: 'folder';
+  };
+  attributes: {
+    cta: Schema.Attribute.Component<'nav.nav-link', false>;
+    description: Schema.Attribute.String;
+    direction: Schema.Attribute.Enumeration<['left', 'right']>;
+    externalYtbUrl: Schema.Attribute.String;
+    media: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    title: Schema.Attribute.String;
+    twoColumnBody: Schema.Attribute.Component<'shared.rich-text', false>;
+  };
+}
+
 export interface SlidersServiceSliderItem extends Struct.ComponentSchema {
   collectionName: 'components_sliders_service_slider_items';
   info: {
@@ -265,7 +343,10 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'accordion.faq': AccordionFaq;
+      'bot.chat-bot-setting': BotChatBotSetting;
       'button.call-back-button': ButtonCallBackButton;
+      'button.login-button': ButtonLoginButton;
+      'form.customer-cb-form': FormCustomerCbForm;
       'grids.article-grid': GridsArticleGrid;
       'grids.four-blocks-grid': GridsFourBlocksGrid;
       'nav.nav-bar': NavNavBar;
@@ -276,10 +357,12 @@ declare module '@strapi/strapi' {
       'shared.hero-banner': SharedHeroBanner;
       'shared.hero-banner-item': SharedHeroBannerItem;
       'shared.media': SharedMedia;
+      'shared.mobile-app-add': SharedMobileAppAdd;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;
       'shared.slider': SharedSlider;
+      'shared.two-column-banner': SharedTwoColumnBanner;
       'sliders.service-slider-item': SlidersServiceSliderItem;
       'sliders.services-slider': SlidersServicesSlider;
       'text.campaign-highlight': TextCampaignHighlight;

@@ -1,0 +1,48 @@
+{
+  "collectionName": "components_shared_two_column_banners",
+  "info": {
+    "displayName": "TwoColumnBanner",
+    "icon": "folder",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "direction": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "right"
+      ]
+    },
+    "twoColumnBody": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.rich-text"
+    },
+    "cta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "nav.nav-link"
+    },
+    "media": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "externalYtbUrl": {
+      "type": "string"
+    }
+  }
+}

@@ -49,6 +49,11 @@
       "type": "component",
       "repeatable": false,
       "component": "button.call-back-button"
+    },
+    "chatbotSetting": {
+      "type": "component",
+      "repeatable": false,
+      "component": "bot.chat-bot-setting"
     }
   }
 }

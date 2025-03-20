@@ -1,0 +1,17 @@
+{
+  "kind": "collectionType",
+  "collectionName": "customer_cb_schedules",
+  "info": {
+    "singularName": "customer-cb-schedule",
+    "pluralName": "customer-cb-schedules",
+    "displayName": "CustomerCBSchedule"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  }
+}

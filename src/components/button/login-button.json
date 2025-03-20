@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_button_login_buttons",
+  "info": {
+    "displayName": "loginButton",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "href": {
+      "type": "string"
+    }
+  }
+}

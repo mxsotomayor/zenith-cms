@@ -31,7 +31,9 @@
         "accordion.faq",
         "grids.four-blocks-grid",
         "grids.article-grid",
-        "shared.alert-card"
+        "shared.alert-card",
+        "shared.two-column-banner",
+        "shared.mobile-app-add"
       ]
     },
     "slug": {
