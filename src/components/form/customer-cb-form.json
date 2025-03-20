@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_form_customer_cb_forms",
+  "info": {
+    "displayName": "CustomerCBForm"
+  },
+  "options": {},
+  "attributes": {
+    "nameLabel": {
+      "type": "string"
+    },
+    "phoneLabel": {
+      "type": "string"
+    },
+    "formTitle": {
+      "type": "string"
+    },
+    "formSubTitle": {
+      "type": "string"
+    },
+    "contactTimeLabel": {
+      "type": "string"
+    },
+    "observationsLabel": {
+      "type": "string"
+    },
+    "endpoint": {
+      "type": "string"
+    }
+  }
+}

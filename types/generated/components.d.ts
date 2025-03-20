@@ -53,6 +53,22 @@ export interface ButtonLoginButton extends Struct.ComponentSchema {
   };
 }
 
+export interface FormCustomerCbForm extends Struct.ComponentSchema {
+  collectionName: 'components_form_customer_cb_forms';
+  info: {
+    displayName: 'CustomerCBForm';
+  };
+  attributes: {
+    contactTimeLabel: Schema.Attribute.String;
+    endpoint: Schema.Attribute.String;
+    formSubTitle: Schema.Attribute.String;
+    formTitle: Schema.Attribute.String;
+    nameLabel: Schema.Attribute.String;
+    observationsLabel: Schema.Attribute.String;
+    phoneLabel: Schema.Attribute.String;
+  };
+}
+
 export interface GridsArticleGrid extends Struct.ComponentSchema {
   collectionName: 'components_grids_article_grids';
   info: {
@@ -196,6 +212,24 @@ export interface SharedMedia extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedMobileAppAdd extends Struct.ComponentSchema {
+  collectionName: 'components_shared_mobile_app_adds';
+  info: {
+    displayName: 'MobileAppAdd';
+    icon: 'gift';
+  };
+  attributes: {
+    appleStoreUrl: Schema.Attribute.String;
+    appScreens: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    googlePlayUrl: Schema.Attribute.String;
+    subTitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SharedQuote extends Struct.ComponentSchema {
   collectionName: 'components_shared_quotes';
   info: {
@@ -312,6 +346,7 @@ declare module '@strapi/strapi' {
       'bot.chat-bot-setting': BotChatBotSetting;
       'button.call-back-button': ButtonCallBackButton;
       'button.login-button': ButtonLoginButton;
+      'form.customer-cb-form': FormCustomerCbForm;
       'grids.article-grid': GridsArticleGrid;
       'grids.four-blocks-grid': GridsFourBlocksGrid;
       'nav.nav-bar': NavNavBar;
@@ -322,6 +357,7 @@ declare module '@strapi/strapi' {
       'shared.hero-banner': SharedHeroBanner;
       'shared.hero-banner-item': SharedHeroBannerItem;
       'shared.media': SharedMedia;
+      'shared.mobile-app-add': SharedMobileAppAdd;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;

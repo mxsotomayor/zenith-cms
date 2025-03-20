@@ -22,7 +22,8 @@
       "components": [
         "shared.rich-text",
         "shared.alert-card",
-        "shared.two-column-banner"
+        "shared.two-column-banner",
+        "accordion.faq"
       ]
     },
     "slug": {

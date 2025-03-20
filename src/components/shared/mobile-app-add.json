@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_shared_mobile_app_adds",
+  "info": {
+    "displayName": "MobileAppAdd",
+    "icon": "gift"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subTitle": {
+      "type": "string"
+    },
+    "googlePlayUrl": {
+      "type": "string"
+    },
+    "appleStoreUrl": {
+      "type": "string"
+    },
+    "appScreens": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}
