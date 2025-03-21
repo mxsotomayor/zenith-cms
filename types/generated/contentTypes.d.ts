@@ -824,7 +824,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'grids.article-grid',
         'shared.alert-card',
         'shared.two-column-banner',
-        'shared.mobile-app-add',
+        'sliders.mobile-app-ad',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;

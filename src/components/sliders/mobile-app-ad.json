@@ -1,8 +1,7 @@
 {
-  "collectionName": "components_shared_mobile_app_adds",
+  "collectionName": "components_sliders_mobile_app_ads",
   "info": {
-    "displayName": "MobileAppAdd",
-    "icon": "gift"
+    "displayName": "MobileAppAd"
   },
   "options": {},
   "attributes": {
