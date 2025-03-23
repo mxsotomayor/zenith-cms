@@ -212,24 +212,6 @@ export interface SharedMedia extends Struct.ComponentSchema {
   };
 }
 
-export interface SharedMobileAppAdd extends Struct.ComponentSchema {
-  collectionName: 'components_shared_mobile_app_adds';
-  info: {
-    displayName: 'MobileAppAdd';
-    icon: 'gift';
-  };
-  attributes: {
-    appleStoreUrl: Schema.Attribute.String;
-    appScreens: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
-    googlePlayUrl: Schema.Attribute.String;
-    subTitle: Schema.Attribute.String;
-    title: Schema.Attribute.String;
-  };
-}
-
 export interface SharedQuote extends Struct.ComponentSchema {
   collectionName: 'components_shared_quotes';
   info: {
@@ -299,6 +281,23 @@ export interface SharedTwoColumnBanner extends Struct.ComponentSchema {
   };
 }
 
+export interface SlidersMobileAppAd extends Struct.ComponentSchema {
+  collectionName: 'components_sliders_mobile_app_ads';
+  info: {
+    displayName: 'MobileAppAd';
+  };
+  attributes: {
+    appleStoreUrl: Schema.Attribute.String;
+    appScreens: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    googlePlayUrl: Schema.Attribute.String;
+    subTitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SlidersServiceSliderItem extends Struct.ComponentSchema {
   collectionName: 'components_sliders_service_slider_items';
   info: {
@@ -357,12 +356,12 @@ declare module '@strapi/strapi' {
       'shared.hero-banner': SharedHeroBanner;
       'shared.hero-banner-item': SharedHeroBannerItem;
       'shared.media': SharedMedia;
-      'shared.mobile-app-add': SharedMobileAppAdd;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;
       'shared.slider': SharedSlider;
       'shared.two-column-banner': SharedTwoColumnBanner;
+      'sliders.mobile-app-ad': SlidersMobileAppAd;
       'sliders.service-slider-item': SlidersServiceSliderItem;
       'sliders.services-slider': SlidersServicesSlider;
       'text.campaign-highlight': TextCampaignHighlight;

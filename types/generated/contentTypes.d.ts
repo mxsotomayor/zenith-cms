@@ -824,7 +824,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'grids.article-grid',
         'shared.alert-card',
         'shared.two-column-banner',
-        'shared.mobile-app-add',
+        'sliders.mobile-app-ad',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -839,6 +839,10 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
       'images' | 'files' | 'videos' | 'audios'
     >;
     slug: Schema.Attribute.UID<'Title'>;
+    subSiteOwner: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::sub-site.sub-site'
+    >;
     Title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
