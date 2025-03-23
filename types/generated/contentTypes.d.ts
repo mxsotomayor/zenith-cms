@@ -839,6 +839,10 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
       'images' | 'files' | 'videos' | 'audios'
     >;
     slug: Schema.Attribute.UID<'Title'>;
+    subSiteOwner: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::sub-site.sub-site'
+    >;
     Title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

@@ -56,6 +56,11 @@
         "videos",
         "audios"
       ]
+    },
+    "subSiteOwner": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::sub-site.sub-site"
     }
   }
 }
