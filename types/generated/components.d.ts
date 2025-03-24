@@ -69,6 +69,34 @@ export interface FormCustomerCbForm extends Struct.ComponentSchema {
   };
 }
 
+export interface FormsForexSimulator extends Struct.ComponentSchema {
+  collectionName: 'components_forms_forex_simulators';
+  info: {
+    description: '';
+    displayName: 'ForexSimulator';
+  };
+  attributes: {
+    for_ex_items: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::forex-item.forex-item'
+    >;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface FormsLoanSimulator extends Struct.ComponentSchema {
+  collectionName: 'components_forms_loan_simulators';
+  info: {
+    description: '';
+    displayName: 'LoanSimulator';
+    icon: 'filter';
+  };
+  attributes: {
+    subtitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface GridsArticleGrid extends Struct.ComponentSchema {
   collectionName: 'components_grids_article_grids';
   info: {
@@ -346,6 +374,8 @@ declare module '@strapi/strapi' {
       'button.call-back-button': ButtonCallBackButton;
       'button.login-button': ButtonLoginButton;
       'form.customer-cb-form': FormCustomerCbForm;
+      'forms.forex-simulator': FormsForexSimulator;
+      'forms.loan-simulator': FormsLoanSimulator;
       'grids.article-grid': GridsArticleGrid;
       'grids.four-blocks-grid': GridsFourBlocksGrid;
       'nav.nav-bar': NavNavBar;

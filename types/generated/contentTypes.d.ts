@@ -679,9 +679,17 @@ export interface ApiFooterFooter extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
+    banks_locations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::location.location'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    footerLogo: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    footerSlogan: Schema.Attribute.String;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::footer.footer'>;
     publishedAt: Schema.Attribute.DateTime;
@@ -697,6 +705,37 @@ export interface ApiFooterFooter extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiForexItemForexItem extends Struct.CollectionTypeSchema {
+  collectionName: 'forex_items';
+  info: {
+    displayName: 'ForExItems';
+    pluralName: 'forex-items';
+    singularName: 'forex-item';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    buy: Schema.Attribute.Decimal;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    iso2: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::forex-item.forex-item'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    sell: Schema.Attribute.Float;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -739,6 +778,41 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
     siteDescription: Schema.Attribute.Text & Schema.Attribute.Required;
     siteName: Schema.Attribute.String & Schema.Attribute.Required;
     subSites: Schema.Attribute.Relation<'oneToMany', 'api::sub-site.sub-site'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiLocationLocation extends Struct.CollectionTypeSchema {
+  collectionName: 'locations';
+  info: {
+    displayName: 'Location';
+    pluralName: 'locations';
+    singularName: 'location';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    address: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.String;
+    footer: Schema.Attribute.Relation<'manyToOne', 'api::footer.footer'>;
+    isPrimary: Schema.Attribute.Boolean;
+    lat: Schema.Attribute.Decimal;
+    lng: Schema.Attribute.Decimal;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::location.location'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    phone: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -825,6 +899,8 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'shared.alert-card',
         'shared.two-column-banner',
         'sliders.mobile-app-ad',
+        'forms.loan-simulator',
+        'forms.forex-simulator',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -1402,7 +1478,9 @@ declare module '@strapi/strapi' {
       'api::customer-cb-schedule.customer-cb-schedule': ApiCustomerCbScheduleCustomerCbSchedule;
       'api::faq.faq': ApiFaqFaq;
       'api::footer.footer': ApiFooterFooter;
+      'api::forex-item.forex-item': ApiForexItemForexItem;
       'api::global.global': ApiGlobalGlobal;
+      'api::location.location': ApiLocationLocation;
       'api::navbar.navbar': ApiNavbarNavbar;
       'api::page.page': ApiPagePage;
       'api::sub-site.sub-site': ApiSubSiteSubSite;

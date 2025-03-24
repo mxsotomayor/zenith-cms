@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "forex_items",
+  "info": {
+    "singularName": "forex-item",
+    "pluralName": "forex-items",
+    "displayName": "ForExItems"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "iso2": {
+      "type": "string"
+    },
+    "buy": {
+      "type": "decimal"
+    },
+    "sell": {
+      "type": "float"
+    }
+  }
+}
