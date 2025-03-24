@@ -33,6 +33,26 @@
           "localized": true
         }
       }
+    },
+    "footerLogo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "footerSlogan": {
+      "type": "string"
+    },
+    "banks_locations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::location.location",
+      "mappedBy": "footer"
     }
   }
 }

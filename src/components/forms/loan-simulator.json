@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_forms_loan_simulators",
+  "info": {
+    "displayName": "LoanSimulator",
+    "icon": "filter",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_forms_forex_simulators",
+  "info": {
+    "displayName": "ForexSimulator",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "for_ex_items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::forex-item.forex-item"
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}

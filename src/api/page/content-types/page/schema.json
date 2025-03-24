@@ -33,7 +33,9 @@
         "grids.article-grid",
         "shared.alert-card",
         "shared.two-column-banner",
-        "sliders.mobile-app-ad"
+        "sliders.mobile-app-ad",
+        "forms.loan-simulator",
+        "forms.forex-simulator"
       ]
     },
     "slug": {
